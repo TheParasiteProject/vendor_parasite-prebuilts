@@ -1,0 +1,11 @@
+android_app_import {
+	name: "Gramophone",
+	apk: "Gramophone.apk",
+	overrides: ["Music", "Eleven"],
+	certificate: "platform",
+	// presigned: true,
+	dex_preopt: {
+		enabled: false,
+	},
+	product_specific: true,
+}
