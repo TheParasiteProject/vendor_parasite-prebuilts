@@ -4,6 +4,7 @@ android_app_import {
 	overrides: ["Music", "Eleven"],
 	certificate: "platform",
 	// presigned: true,
+	// preprocessed: true,
 	dex_preopt: {
 		enabled: false,
 	},
