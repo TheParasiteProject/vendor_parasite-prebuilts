@@ -1,0 +1,16 @@
+android_app_import {
+    name: "Gramophone",
+    owner: "AkaneFoundation",
+    apk: "common/product/app/Gramophone/Gramophone.apk",
+    overrides: ["Eleven"],
+    preprocessed: true,
+    presigned: true,
+    dex_preopt: {
+        enabled: true,
+    },
+    optional_uses_libs: [
+        "androidx.window.extensions",
+        "androidx.window.sidecar",
+    ],
+    product_specific: true,
+}
