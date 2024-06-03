@@ -48,6 +48,33 @@ function getAkaneFoundationApks() {
     getApkFromOnline $acc_name $app_name $app_file $target_dir
 }
 
+function getMicroG() {
+    # microG Project
+    local microg_proj_dir=$COMMON_DIR/microG
+
+    # GmsCore
+    local acc_name=microg
+    local app_name=GmsCore
+    local app_file='com.google.android.gms.*[0-9].apk'
+    local target_dir="$microg_proj_dir/common/product/priv-app/$app_name"
+    getApkFromOnline $acc_name $app_name $app_file $target_dir
+
+    # PhoneskyCompanion
+    local acc_name=microg
+    local app_name=PhoneskyCompanion
+    local app_file=' com.android.vending.*[0-9].apk '
+    local target_dir="$microg_proj_dir/common/product/priv-app/$app_name"
+    getApkFromOnline $acc_name "GmsCore" $app_file $target_dir
+
+    # GsfProxy
+    local acc_name=microg
+    local app_name=GsfProxy
+    local app_file='GsfProxy.apk'
+    local target_dir="$microg_proj_dir/common/system_ext/priv-app/$app_name"
+    getApkFromOnline $acc_name $app_name $app_file $target_dir
+}
+
 getAkaneFoundationApks
+getMicroG
 
 unset COMMON_DIR
