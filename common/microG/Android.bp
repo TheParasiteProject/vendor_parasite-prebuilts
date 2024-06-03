@@ -1,0 +1,105 @@
+soong_namespace {
+    imports: [
+    ],
+}
+
+prebuilt_etc_xml {
+    name: "permissions-com.google.android.gms.xml",
+    owner: "microG",
+    src: "common/product/etc/default-permissions/permissions-com.google.android.gms.xml",
+    filename_from_src: true,
+    sub_dir: "default-permissions",
+    product_specific: true,
+}
+
+prebuilt_etc_xml {
+    name: "com.google.android.maps.xml",
+    owner: "Google",
+    src: "common/product/etc/permissions/com.google.android.maps.xml",
+    filename_from_src: true,
+    sub_dir: "permissions",
+    product_specific: true,
+}
+
+prebuilt_etc_xml {
+    name: "privapp-permissions-org.microG.xml",
+    owner: "microG",
+    src: "common/product/etc/permissions/privapp-permissions-org.microG.xml",
+    filename_from_src: true,
+    sub_dir: "permissions",
+    product_specific: true,
+}
+
+prebuilt_etc_xml {
+    name: "org.microG.xml",
+    owner: "microG",
+    src: "common/product/etc/sysconfig/org.microG.xml",
+    filename_from_src: true,
+    sub_dir: "sysconfig",
+    product_specific: true,
+}
+
+android_app_import {
+    name: "GmsCore",
+    owner: "microG",
+    apk: "common/product/priv-app/GmsCore/GmsCore.apk",
+	overrides: ["PrebuiltGmsCore"],
+    preprocessed: true,
+    presigned: true,
+    dex_preopt: {
+        enabled: true,
+    },
+    uses_libs: [
+        "com.android.location.provider",
+    ],
+    optional_uses_libs: [
+        "org.apache.http.legacy",
+        "androidx.window.extensions",
+        "androidx.window.sidecar",
+    ],
+    privileged: true,
+    product_specific: true,
+    required: [
+        "permissions-com.google.android.gms.xml",
+        "privapp-permissions-org.microG.xml",
+        "org.microG.xml",
+    ],
+}
+
+android_app_import {
+    name: "GsfProxy",
+    owner: "microG",
+    apk: "common/system_ext/priv-app/GsfProxy/GsfProxy.apk",
+	overrides: ["GoogleServicesFramework"],
+    preprocessed: true,
+    presigned: true,
+    dex_preopt: {
+        enabled: true,
+    },
+    privileged: true,
+    system_ext_specific: true,
+}
+
+android_app_import {
+    name: "PhoneskyCompanion",
+    owner: "microG",
+    apk: "common/product/priv-app/PhoneskyCompanion/PhoneskyCompanion.apk",
+	overrides: ["Phonesky"],
+    preprocessed: true,
+    presigned: true,
+    dex_preopt: {
+        enabled: true,
+    },
+    privileged: true,
+    product_specific: true,
+}
+
+dex_import {
+	name: "com.google.android.maps",
+	owner: "Google",
+	jars: ["common/product/framework/com.google.android.maps.jar"],
+	product_specific: true,
+    required: [
+        "com.google.android.maps.xml",
+    ],
+}
