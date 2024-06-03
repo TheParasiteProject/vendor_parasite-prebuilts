@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.microg.overlay.config">
+
+    <overlay
+        android:isStatic="true"
+        android:priority="9999"
+        android:targetPackage="android"
+        android:label="microGConfigOverlay" />
+</manifest>
