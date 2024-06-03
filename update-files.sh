@@ -42,6 +42,34 @@ function getGramophone() {
     getApkFromOnline $acc_name $app_name $app_file $target_dir
 }
 
-getGramophone
+function getMicroG() {
+    # microG Project
+    local microg_proj_dir=$COMMON_DIR/microG
+
+    # microG
+    local acc_name=microG
+
+    local app_names=(
+        GmsCore
+        GsfProxy
+    )
+
+    local app_files=(
+        'com.google.android.gms.*[0-9].apk'
+        GsfProxy.apk
+    )
+
+    local target_dirs=(
+        $microg_proj_dir/common/product/priv-app/GmsCore
+        $microg_proj_dir/common/system_ext/priv-app/GsfProxy
+    )
+
+    for (( i=0; i < ${#app_names[@]}; i++ )); do
+        getApkFromOnline $acc_name ${app_names[$i]} ${app_files[$i]} ${target_dirs[$i]}
+    done
+}
+
+#getGramophone
+getMicroG
 
 unset COMMON_DIR
