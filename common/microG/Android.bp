@@ -1,0 +1,42 @@
+android_app_import {
+    name: "GmsCore",
+    owner: "microG",
+    apk: "common/product/priv-app/GmsCore/GmsCore.apk",
+	overrides: ["PrebuiltGmsCore"],
+    preprocessed: true,
+    presigned: true,
+    dex_preopt: {
+        enabled: true,
+    },
+    uses_libs: [
+        "com.android.location.provider",
+    ],
+    optional_uses_libs: [
+        "org.apache.http.legacy",
+        "androidx.window.extensions",
+        "androidx.window.sidecar",
+    ],
+    privileged: true,
+    product_specific: true,
+}
+
+android_app_import {
+    name: "GsfProxy",
+    owner: "microG",
+    apk: "common/system_ext/priv-app/GsfProxy/GsfProxy.apk",
+	overrides: ["GoogleServicesFramework"],
+    preprocessed: true,
+    presigned: true,
+    dex_preopt: {
+        enabled: true,
+    },
+    privileged: true,
+    system_ext_specific: true,
+}
+
+dex_import {
+	name: "com.google.android.maps",
+	owner: "Google",
+	jars: ["common/product/framework/com.google.android.maps.jar"],
+	product_specific: true,
+}
