@@ -29,7 +29,7 @@ function getApkFromOnline() {
     getFile $target_apk_url $target_dir $out_file
 }
 
-function getGramophone() {
+function getAkaneFoundationApks() {
     # Akane Foundation
     local akane_fdn_dir=$COMMON_DIR/AkaneFoundation
 
@@ -38,10 +38,16 @@ function getGramophone() {
     local app_name=Gramophone
     local app_file='Gramophone.*.apk'
     local target_dir="$akane_fdn_dir/common/product/app/$app_name"
+    getApkFromOnline $acc_name $app_name $app_file $target_dir
 
+    # Omni
+    local acc_name=AkaneFoundation
+    local app_name=Omni
+    local app_file='app-release.apk'
+    local target_dir="$akane_fdn_dir/common/product/app/$app_name"
     getApkFromOnline $acc_name $app_name $app_file $target_dir
 }
 
-getGramophone
+getAkaneFoundationApks
 
 unset COMMON_DIR
