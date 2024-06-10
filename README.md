@@ -5,6 +5,10 @@ Prebuilt binaries used in TheParasiteProject.
 ## Variables
 
 [Akane Foundation](https://github.com/AkaneFoundation):
+Note: If both `TARGET_INCLUDE_ACCORD` and `TARGET_INCLUDE_GRAMOPHONE` set,<br>
+`Gramophone` will overrides `Accord`.
+
+* `TARGET_INCLUDE_ACCORD`: Include [Accord](https://github.com/AkaneFoundation/Accord) music player.
 * `TARGET_INCLUDE_GRAMOPHONE`: Include [Gramophone](https://github.com/AkaneTan/Gramophone) music player.
 * `TARGET_INCLUDE_OMNI`: Include [Omni](https://github.com/AkaneFoundation/Omni) toolbox.
 
