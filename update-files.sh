@@ -34,6 +34,13 @@ function getAkaneFoundationApks() {
     # Akane Foundation
     local akane_fdn_dir=$COMMON_DIR/AkaneFoundation
 
+    # Accord
+    local acc_name=AkaneFoundation
+    local app_name=Accord
+    local app_file='Accord.*.apk'
+    local target_dir="$akane_fdn_dir/common/product/app/$app_name"
+    getApkFromOnline $acc_name $app_name $app_name $app_file $app_name $target_dir
+
     # Gramophone
     local acc_name=AkaneTan
     local app_name=Gramophone
