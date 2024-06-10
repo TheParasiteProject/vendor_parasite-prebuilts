@@ -1,13 +1,4 @@
-# Gramophone
-TARGET_INCLUDE_GRAMOPHONE ?= true
-ifeq ($(TARGET_INCLUDE_GRAMOPHONE),true)
-PRODUCT_PACKAGES += \
-    Gramophone
-endif
+PARASITE_PREBUILTS := vendor/parasite/prebuilts
 
-# Omni
-TARGET_INCLUDE_OMNI ?= true
-ifeq ($(TARGET_INCLUDE_OMNI),true)
-PRODUCT_PACKAGES += \
-    Omni
-endif
+# Akane Foundation
+$(call inherit-product-if-exists, $(PARASITE_PREBUILTS)/common/AkaneFoundation/config.mk)
